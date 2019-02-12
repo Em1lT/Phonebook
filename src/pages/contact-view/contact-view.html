@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>kontakti</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-item>
+    <ion-label color="primary" floating>Vaihda etunimeä</ion-label>
+    <ion-input type="text" name="title" [(ngModel)]="contact.firstName"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label color="primary" floating>Vaihda sukunimeä</ion-label>
+    <ion-input type="text" name="title" [(ngModel)]="contact.lastName"></ion-input>
+</ion-item> 
+<ion-item *ngFor="let num of contact.numbers; let i = index;">
+    <ion-label color="primary" floating>Numero</ion-label>
+    <ion-input type="text" name="title" [(ngModel)]="contact.numbers[i]"></ion-input>
+</ion-item>
+<ion-list id="numbers">
+</ion-list>
+<ion-grid>
+    <ion-row>
+      <ion-col col-6>
+          <button ion-button color="primary" size="small" (click)="addNumber()" id="button" clear>Lisää numero</button>
+      </ion-col>
+      <ion-col col-6>
+          <button ion-button color="danger" size="small" (click)="deleteNumber()" id="button" clear>Poista numero</button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<br>
+<br>
+<ion-grid>
+    <ion-row>
+      <ion-col col-6>
+          <button block ion-button (click)="changeContact()" outline>Muuta kontakti</button>
+      </ion-col>
+      <ion-col col-6>
+          <button  block ion-button color="danger" outline (click)="deleteContact()">Poista kontakti</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
